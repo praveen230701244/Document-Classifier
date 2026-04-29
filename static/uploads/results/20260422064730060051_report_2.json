@@ -1,0 +1,19 @@
+{
+  "filename": "report (2).png",
+  "saved_filename": "20260422064730060051_report_2.png",
+  "status": "success",
+  "prediction": "resume",
+  "confidence": 34.15,
+  "raw_text": "din ted eld\na ee\nthc _\n= - a",
+  "processed_image_url": "/static/uploads/processed/20260422064730060051_report_2.png",
+  "original_image_url": "/static/uploads/original/20260422064730060051_report_2.png",
+  "extracted_info": {
+    "skills": [
+      "Not found"
+    ],
+    "education_keywords": [
+      "Not found"
+    ]
+  },
+  "created_at": "2026-04-22 06:47:32 UTC"
+}

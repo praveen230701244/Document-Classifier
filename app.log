@@ -1,0 +1,537 @@
+2026-04-15 20:06:41,765 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-15 20:06:41,766 | INFO | [33mPress CTRL+C to quit[0m
+2026-04-15 20:06:41,767 | INFO |  * Restarting with stat
+2026-04-15 20:06:43,018 | WARNING |  * Debugger is active!
+2026-04-15 20:06:43,021 | INFO |  * Debugger PIN: 108-429-656
+2026-04-17 11:17:52,457 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-17 11:17:52,464 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-17 11:17:52,468 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:17:55,970 | WARNING | werkzeug |  * Debugger is active!
+2026-04-17 11:17:55,975 | INFO | werkzeug |  * Debugger PIN: 115-543-014
+2026-04-17 11:21:23,740 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:23] "GET / HTTP/1.1" 200 -
+2026-04-17 11:21:23,887 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:23] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-04-17 11:21:23,893 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:23] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-04-17 11:21:24,018 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-17 11:21:44,369 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:44] "GET /dashboard HTTP/1.1" 200 -
+2026-04-17 11:21:44,410 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:21:47,066 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:47] "GET / HTTP/1.1" 200 -
+2026-04-17 11:21:47,099 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:21:47,113 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:21:47] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:22:46,581 | INFO | routes.main_routes | Upload accepted: 20260417055246579015_Screenshot_2026-04-17_112224.png
+2026-04-17 11:22:47,466 | ERROR | routes.main_routes | OCR failure for Screenshot 2026-04-17 112224.png
+Traceback (most recent call last):
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1036, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1548, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\services\ocr_service.py", line 35, in process_image_and_extract_text
+    text = pytesseract.image_to_string(processed, config="--oem 3 --psm 6")
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ~
+    ...<2 lines>...
+        Output.STRING: lambda: run_and_get_output(*args),
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    }[output_type]()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 87, in analyze_documents
+    ocr_result = process_image_and_extract_text(
+        image_path=upload_path,
+        processed_folder=Path(current_app.config["PROCESSED_FOLDER"]),
+    )
+  File "D:\Image Processing Project\services\ocr_service.py", line 37, in process_image_and_extract_text
+    raise OCRServiceError(
+        "Tesseract is not installed or not in PATH. Set TESSERACT_CMD if needed."
+    ) from exc
+services.ocr_service.OCRServiceError: Tesseract is not installed or not in PATH. Set TESSERACT_CMD if needed.
+2026-04-17 11:22:47,577 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:22:47] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:22:47,620 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:22:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:27:23,996 | INFO | werkzeug |  * Detected change in 'D:\\Image Processing Project\\services\\ocr_service.py', reloading
+2026-04-17 11:27:24,415 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:27:35,912 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-17 11:27:35,913 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-17 11:27:35,915 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:27:38,912 | WARNING | werkzeug |  * Debugger is active!
+2026-04-17 11:27:38,917 | INFO | werkzeug |  * Debugger PIN: 115-543-014
+2026-04-17 11:27:50,397 | INFO | routes.main_routes | Upload accepted: 20260417055750396267_Screenshot_2026-04-17_112224.png
+2026-04-17 11:27:51,146 | ERROR | routes.main_routes | OCR failure for Screenshot 2026-04-17 112224.png
+Traceback (most recent call last):
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1036, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1548, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\services\ocr_service.py", line 35, in process_image_and_extract_text
+    text = pytesseract.image_to_string(processed, config="--oem 3 --psm 6")
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ~
+    ...<2 lines>...
+        Output.STRING: lambda: run_and_get_output(*args),
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    }[output_type]()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 87, in analyze_documents
+    ocr_result = process_image_and_extract_text(
+        image_path=upload_path,
+        processed_folder=Path(current_app.config["PROCESSED_FOLDER"]),
+    )
+  File "D:\Image Processing Project\services\ocr_service.py", line 37, in process_image_and_extract_text
+    raise OCRServiceError(
+        "Tesseract is not installed or not in PATH. Set TESSERACT_CMD if needed."
+    ) from exc
+services.ocr_service.OCRServiceError: Tesseract is not installed or not in PATH. Set TESSERACT_CMD if needed.
+2026-04-17 11:27:51,177 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:27:51] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:27:51,289 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:27:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:27:54,816 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:27:54] "GET / HTTP/1.1" 200 -
+2026-04-17 11:27:54,845 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:27:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:27:54,857 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:27:54] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:28:22,197 | INFO | routes.main_routes | Upload accepted: 20260417055822191629_Screenshot_2026-04-17_112224.png
+2026-04-17 11:28:22,854 | ERROR | routes.main_routes | OCR failure for Screenshot 2026-04-17 112224.png
+Traceback (most recent call last):
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1036, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1548, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\services\ocr_service.py", line 35, in process_image_and_extract_text
+    text = pytesseract.image_to_string(processed, config="--oem 3 --psm 6")
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ~
+    ...<2 lines>...
+        Output.STRING: lambda: run_and_get_output(*args),
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    }[output_type]()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 87, in analyze_documents
+    ocr_result = process_image_and_extract_text(
+        image_path=upload_path,
+        processed_folder=Path(current_app.config["PROCESSED_FOLDER"]),
+    )
+  File "D:\Image Processing Project\services\ocr_service.py", line 37, in process_image_and_extract_text
+    raise OCRServiceError(
+        "Tesseract is not installed or not in PATH. Set TESSERACT_CMD if needed."
+    ) from exc
+services.ocr_service.OCRServiceError: Tesseract is not installed or not in PATH. Set TESSERACT_CMD if needed.
+2026-04-17 11:28:22,862 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:28:22] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:28:22,893 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:28:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:29:38,659 | INFO | werkzeug |  * Detected change in 'D:\\Image Processing Project\\services\\ocr_service.py', reloading
+2026-04-17 11:29:39,013 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:30:24,783 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-17 11:30:24,784 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-17 11:30:24,787 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:30:28,510 | WARNING | werkzeug |  * Debugger is active!
+2026-04-17 11:30:28,520 | INFO | werkzeug |  * Debugger PIN: 115-543-014
+2026-04-17 11:30:31,092 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:30:31] "GET / HTTP/1.1" 200 -
+2026-04-17 11:30:31,249 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:30:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:30:31,251 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:30:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:30:51,397 | INFO | routes.main_routes | Upload accepted: 20260417060051395511_Screenshot_2026-04-17_112230.png
+2026-04-17 11:30:51,403 | ERROR | routes.main_routes | Unexpected processing failure for Screenshot 2026-04-17 112230.png
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 87, in analyze_documents
+    ocr_result = process_image_and_extract_text(
+        image_path=upload_path,
+        processed_folder=Path(current_app.config["PROCESSED_FOLDER"]),
+    )
+  File "D:\Image Processing Project\services\ocr_service.py", line 20, in process_image_and_extract_text
+    _configure_tesseract()
+    ^^^^^^^^^^^^^^^^^^^^
+NameError: name '_configure_tesseract' is not defined
+2026-04-17 11:30:51,438 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:30:51] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:30:51,466 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:30:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:32:13,898 | INFO | werkzeug |  * Detected change in 'D:\\Image Processing Project\\services\\ocr_service.py', reloading
+2026-04-17 11:32:19,021 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-17 11:32:19,022 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-17 11:32:19,024 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:32:22,090 | WARNING | werkzeug |  * Debugger is active!
+2026-04-17 11:32:22,099 | INFO | werkzeug |  * Debugger PIN: 115-543-014
+2026-04-17 11:32:28,825 | INFO | routes.main_routes | Upload accepted: 20260417060228823401_Screenshot_2026-04-17_112230.png
+2026-04-17 11:32:30,943 | ERROR | routes.main_routes | Unexpected processing failure for Screenshot 2026-04-17 112230.png
+Traceback (most recent call last):
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 85, in __load
+    root = nltk.data.find(f"{self.subdir}/{zip_name}")
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\data.py", line 738, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource 'stopwords' not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  >>> import nltk
+  >>> nltk.download('stopwords')
+
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load 'corpora/stopwords.zip/stopwords/'
+
+  Searched in:
+    - 'C:\\Users\\prave/nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 91, in analyze_documents
+    cleaned_text = normalize_text_for_model(ocr_result["text"])
+  File "D:\Image Processing Project\utils\text_processing.py", line 21, in normalize_text_for_model
+    stop_words = set(stopwords.words("english"))
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 129, in __getattr__
+    self.__load()
+    ~~~~~~~~~~~^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 87, in __load
+    raise e
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 82, in __load
+    root = nltk.data.find(f"{self.subdir}/{self.__name}")
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\data.py", line 738, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource 'stopwords' not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  >>> import nltk
+  >>> nltk.download('stopwords')
+
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load 'corpora/stopwords'
+
+  Searched in:
+    - 'C:\\Users\\prave/nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+
+2026-04-17 11:32:30,976 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:30] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:32:31,098 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:32:33,019 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:33] "GET / HTTP/1.1" 200 -
+2026-04-17 11:32:33,049 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:32:33,054 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:33] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:32:50,436 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-17 11:32:50,439 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-17 11:32:50,444 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:32:53,668 | WARNING | werkzeug |  * Debugger is active!
+2026-04-17 11:32:53,679 | INFO | werkzeug |  * Debugger PIN: 115-543-014
+2026-04-17 11:32:53,847 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:53] "GET / HTTP/1.1" 200 -
+2026-04-17 11:32:54,181 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:32:54,261 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:32:54] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:33:07,181 | INFO | routes.main_routes | Upload accepted: 20260417060307180143_Screenshot_2026-04-17_112224.png
+2026-04-17 11:33:08,343 | ERROR | routes.main_routes | Unexpected processing failure for Screenshot 2026-04-17 112224.png
+Traceback (most recent call last):
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 85, in __load
+    root = nltk.data.find(f"{self.subdir}/{zip_name}")
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\data.py", line 738, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource 'stopwords' not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  >>> import nltk
+  >>> nltk.download('stopwords')
+
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load 'corpora/stopwords.zip/stopwords/'
+
+  Searched in:
+    - 'C:\\Users\\prave/nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 91, in analyze_documents
+    cleaned_text = normalize_text_for_model(ocr_result["text"])
+  File "D:\Image Processing Project\utils\text_processing.py", line 21, in normalize_text_for_model
+    stop_words = set(stopwords.words("english"))
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 129, in __getattr__
+    self.__load()
+    ~~~~~~~~~~~^^
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 87, in __load
+    raise e
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\corpus\util.py", line 82, in __load
+    root = nltk.data.find(f"{self.subdir}/{self.__name}")
+  File "C:\Users\prave\AppData\Local\Programs\Python\Python313\Lib\site-packages\nltk\data.py", line 738, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource 'stopwords' not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  >>> import nltk
+  >>> nltk.download('stopwords')
+
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load 'corpora/stopwords'
+
+  Searched in:
+    - 'C:\\Users\\prave/nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\share\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Local\\Programs\\Python\\Python313\\lib\\nltk_data'
+    - 'C:\\Users\\prave\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+
+2026-04-17 11:33:08,370 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:33:08] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:33:08,401 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:33:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:40:11,125 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-17 11:40:11,125 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-17 11:40:11,129 | INFO | werkzeug |  * Restarting with stat
+2026-04-17 11:40:14,494 | WARNING | werkzeug |  * Debugger is active!
+2026-04-17 11:40:14,501 | INFO | werkzeug |  * Debugger PIN: 115-543-014
+2026-04-17 11:40:16,547 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:16] "GET / HTTP/1.1" 200 -
+2026-04-17 11:40:16,697 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:16] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:40:16,699 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:40:27,172 | INFO | routes.main_routes | Upload accepted: 20260417061027169538_Screenshot_2026-04-17_112224.png
+2026-04-17 11:40:29,024 | INFO | routes.main_routes | Prediction complete file=Screenshot 2026-04-17 112224.png class=resume confidence=42.84
+2026-04-17 11:40:29,037 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:29] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:40:29,076 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:29] "GET /static/uploads/original/20260417061027169538_Screenshot_2026-04-17_112224.png HTTP/1.1" 200 -
+2026-04-17 11:40:29,101 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:40:29,103 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:29] "GET /static/uploads/processed/20260417061027169538_Screenshot_2026-04-17_112224.png HTTP/1.1" 200 -
+2026-04-17 11:40:43,586 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:43] "GET / HTTP/1.1" 200 -
+2026-04-17 11:40:43,615 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:40:43,635 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:40:43] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:41:39,059 | INFO | routes.main_routes | Upload accepted: 20260417061139057956_Screenshot_2026-04-17_114118.png
+2026-04-17 11:41:41,019 | INFO | routes.main_routes | Prediction complete file=Screenshot 2026-04-17 114118.png class=resume confidence=39.34
+2026-04-17 11:41:41,021 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:41:41] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:41:41,049 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:41:41] "GET /static/uploads/original/20260417061139057956_Screenshot_2026-04-17_114118.png HTTP/1.1" 200 -
+2026-04-17 11:41:41,059 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:41:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:41:41,073 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:41:41] "GET /static/uploads/processed/20260417061139057956_Screenshot_2026-04-17_114118.png HTTP/1.1" 200 -
+2026-04-17 11:41:59,746 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:41:59] "GET / HTTP/1.1" 200 -
+2026-04-17 11:41:59,792 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:41:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-17 11:41:59,805 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:41:59] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-17 11:42:10,768 | INFO | routes.main_routes | Upload accepted: 20260417061210767023_Screenshot_2026-04-17_112214.png
+2026-04-17 11:42:11,722 | INFO | routes.main_routes | Prediction complete file=Screenshot 2026-04-17 112214.png class=invoice confidence=52.58
+2026-04-17 11:42:11,723 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:42:11] "POST /analyze HTTP/1.1" 200 -
+2026-04-17 11:42:11,748 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:42:11] "GET /static/uploads/original/20260417061210767023_Screenshot_2026-04-17_112214.png HTTP/1.1" 200 -
+2026-04-17 11:42:11,769 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:42:11] "GET /static/uploads/processed/20260417061210767023_Screenshot_2026-04-17_112214.png HTTP/1.1" 200 -
+2026-04-17 11:42:11,770 | INFO | werkzeug | 127.0.0.1 - - [17/Apr/2026 11:42:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:03:53,366 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-22 12:03:53,367 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-22 12:03:53,370 | INFO | werkzeug |  * Restarting with stat
+2026-04-22 12:03:56,344 | WARNING | werkzeug |  * Debugger is active!
+2026-04-22 12:03:56,350 | INFO | werkzeug |  * Debugger PIN: 722-692-641
+2026-04-22 12:04:00,795 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:04:00] "GET / HTTP/1.1" 200 -
+2026-04-22 12:04:00,950 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:04:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:04:00,974 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:04:00] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-22 12:04:01,038 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:04:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-22 12:05:08,990 | INFO | routes.main_routes | Upload accepted: 20260422063508987440_Screenshot_2026-04-17_112230.png
+2026-04-22 12:05:11,468 | INFO | routes.main_routes | Prediction complete file=Screenshot 2026-04-17 112230.png class=report confidence=44.63
+2026-04-22 12:05:11,507 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:05:11] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:05:11,537 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:05:11] "GET /static/uploads/original/20260422063508987440_Screenshot_2026-04-17_112230.png HTTP/1.1" 200 -
+2026-04-22 12:05:11,548 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:05:11] "GET /static/uploads/processed/20260422063508987440_Screenshot_2026-04-17_112230.png HTTP/1.1" 200 -
+2026-04-22 12:05:11,548 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:05:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:17:15,775 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:17:15] "GET / HTTP/1.1" 200 -
+2026-04-22 12:17:15,821 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:17:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:17:15,887 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:17:15] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-22 12:17:30,062 | INFO | routes.main_routes | Upload accepted: 20260422064730060051_report_2.png
+2026-04-22 12:17:32,472 | INFO | routes.main_routes | Prediction complete file=report (2).png class=resume confidence=34.15
+2026-04-22 12:17:32,474 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:17:32] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:17:32,502 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:17:32] "GET /static/uploads/original/20260422064730060051_report_2.png HTTP/1.1" 200 -
+2026-04-22 12:17:32,516 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:17:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:17:32,533 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:17:32] "GET /static/uploads/processed/20260422064730060051_report_2.png HTTP/1.1" 200 -
+2026-04-22 12:41:55,610 | INFO | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-22 12:41:55,615 | INFO | werkzeug | [33mPress CTRL+C to quit[0m
+2026-04-22 12:41:55,621 | INFO | werkzeug |  * Restarting with stat
+2026-04-22 12:42:06,491 | WARNING | werkzeug |  * Debugger is active!
+2026-04-22 12:42:06,582 | INFO | werkzeug |  * Debugger PIN: 722-692-641
+2026-04-22 12:42:06,853 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:06] "GET / HTTP/1.1" 200 -
+2026-04-22 12:42:08,542 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:08] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-04-22 12:42:08,544 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:08] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-04-22 12:42:08,718 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-22 12:42:34,181 | INFO | routes.main_routes | Upload accepted: 20260422071234174642_resume.png
+2026-04-22 12:42:37,462 | ERROR | routes.main_routes | OCR failure for resume.png
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 93, in analyze_documents
+    raise OCRServiceError("OCR extracted empty or noisy text.")
+services.ocr_service.OCRServiceError: OCR extracted empty or noisy text.
+2026-04-22 12:42:37,636 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:37] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:42:37,762 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:42:51,622 | INFO | routes.main_routes | Upload accepted: 20260422071251618695_resume.png
+2026-04-22 12:42:53,144 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:53] "GET / HTTP/1.1" 200 -
+2026-04-22 12:42:53,211 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:42:53,263 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:53] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-22 12:42:53,810 | ERROR | routes.main_routes | OCR failure for resume.png
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 93, in analyze_documents
+    raise OCRServiceError("OCR extracted empty or noisy text.")
+services.ocr_service.OCRServiceError: OCR extracted empty or noisy text.
+2026-04-22 12:42:53,815 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:42:53] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:43:12,845 | INFO | routes.main_routes | Upload accepted: 20260422071312839673_resume.png
+2026-04-22 12:43:14,204 | ERROR | routes.main_routes | OCR failure for resume.png
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 93, in analyze_documents
+    raise OCRServiceError("OCR extracted empty or noisy text.")
+services.ocr_service.OCRServiceError: OCR extracted empty or noisy text.
+2026-04-22 12:43:14,208 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:14] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:43:14,239 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:43:19,169 | INFO | routes.main_routes | Upload accepted: 20260422071319167579_resume.png
+2026-04-22 12:43:21,464 | ERROR | routes.main_routes | OCR failure for resume.png
+Traceback (most recent call last):
+  File "D:\Image Processing Project\routes\main_routes.py", line 93, in analyze_documents
+    raise OCRServiceError("OCR extracted empty or noisy text.")
+services.ocr_service.OCRServiceError: OCR extracted empty or noisy text.
+2026-04-22 12:43:21,468 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:21] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:43:21,498 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:43:26,628 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:26] "GET / HTTP/1.1" 200 -
+2026-04-22 12:43:26,660 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:43:26,967 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:26] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-22 12:43:35,262 | INFO | routes.main_routes | Upload accepted: 20260422071335252947_invoice.jpg
+2026-04-22 12:43:40,364 | INFO | routes.main_routes | Prediction complete file=invoice.jpg class=invoice confidence=42.40
+2026-04-22 12:43:40,371 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:40] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:43:40,573 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:40] "GET /static/uploads/original/20260422071335252947_invoice.jpg HTTP/1.1" 200 -
+2026-04-22 12:43:40,587 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:43:40,608 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:43:40] "GET /static/uploads/processed/20260422071335252947_invoice.jpg HTTP/1.1" 200 -
+2026-04-22 12:48:35,355 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:48:35] "GET / HTTP/1.1" 200 -
+2026-04-22 12:48:35,379 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:48:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:48:35,388 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:48:35] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-22 12:48:50,161 | INFO | routes.main_routes | Upload accepted: 20260422071850159823_report.png
+2026-04-22 12:48:51,253 | INFO | routes.main_routes | Prediction complete file=report.png class=resume confidence=35.07
+2026-04-22 12:48:51,255 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:48:51] "POST /analyze HTTP/1.1" 200 -
+2026-04-22 12:48:51,278 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:48:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-22 12:48:51,284 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:48:51] "GET /static/uploads/original/20260422071850159823_report.png HTTP/1.1" 200 -
+2026-04-22 12:48:51,301 | INFO | werkzeug | 127.0.0.1 - - [22/Apr/2026 12:48:51] "GET /static/uploads/processed/20260422071850159823_report.png HTTP/1.1" 200 -

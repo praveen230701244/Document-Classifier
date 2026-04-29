@@ -1,0 +1,17 @@
+{
+  "filename": "Screenshot 2026-04-17 112230.png",
+  "saved_filename": "20260422063508987440_Screenshot_2026-04-17_112230.png",
+  "status": "success",
+  "prediction": "report",
+  "confidence": 44.63,
+  "raw_text": "Project Report\nTitle: Al Documem Classificaion\nAbstract. This report explains the methodology\nMethodology: Machine Leaming and OCR used.\nConclusion: System achieved good accuracy",
+  "processed_image_url": "/static/uploads/processed/20260422063508987440_Screenshot_2026-04-17_112230.png",
+  "original_image_url": "/static/uploads/original/20260422063508987440_Screenshot_2026-04-17_112230.png",
+  "extracted_info": {
+    "headings_or_sections": [
+      "Conclusion",
+      "Methodology"
+    ]
+  },
+  "created_at": "2026-04-22 06:35:11 UTC"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaDocs AI | Document Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <main class="layout">
+      <header class="topbar glass">
+        <h1>NovaDocs AI</h1>
+        <a class="ghost-btn" href="{{ url_for('main.dashboard') }}">Dashboard</a>
+      </header>
+
+      <section class="hero glass">
+        <h2>AI Document Intelligence Platform</h2>
+        <p>
+          Upload multiple documents and get OCR, classification confidence, and structured business insights in seconds.
+        </p>
+      </section>
+
+      {% if error %}
+      <div class="alert glass">{{ error }}</div>
+      {% endif %}
+
+      <section class="uploader glass">
+        <form id="upload-form" action="{{ url_for('main.analyze_documents') }}" method="post" enctype="multipart/form-data">
+          <label id="drop-zone" for="documents">
+            <span class="drop-title">Drop files here</span>
+            <span class="drop-subtitle">or click to browse (PNG, JPG, JPEG, BMP, TIF, TIFF)</span>
+          </label>
+          <input id="documents" type="file" name="documents" accept=".png,.jpg,.jpeg,.bmp,.tif,.tiff" multiple required />
+          <div id="preview" class="preview-grid"></div>
+          <button id="analyze-btn" type="submit" class="primary-btn">Analyze Documents</button>
+        </form>
+      </section>
+
+      <section class="history glass">
+        <div class="section-head">
+          <h3>Recent Classification History</h3>
+          <a class="ghost-btn small" href="{{ url_for('main.dashboard') }}">View All</a>
+        </div>
+        {% if history %}
+        <div class="history-list">
+          {% for item in history %}
+          <article class="history-item">
+            <div>
+              <strong>{{ item.filename }}</strong>
+              <p>{{ item.created_at }}</p>
+            </div>
+            <div class="tag-wrap">
+              <span class="tag">{{ item.prediction }}</span>
+              <span class="confidence">{{ item.confidence }}%</span>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p class="muted">No history yet. Run your first analysis.</p>
+        {% endif %}
+      </section>
+    </main>
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <p>Running OCR + ML classification...</p>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

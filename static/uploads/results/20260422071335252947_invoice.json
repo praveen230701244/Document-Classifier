@@ -1,0 +1,16 @@
+{
+  "filename": "invoice.jpg",
+  "saved_filename": "20260422071335252947_invoice.jpg",
+  "status": "success",
+  "prediction": "invoice",
+  "confidence": 42.4,
+  "raw_text": "\\Your Company Name\n123 Strest Addrems, City, State, Zip/Post Case\nPhone Number, Email\nDATE\nINVOICE NO.\n<Paymert. terms (due on receipt, dus In X daya)>\neile TO anip 10\nContact Name Name/Oet\nClient\nCompany\nCllert Company Name Name\nAddress Address:\nPhooe Phone\n\u2014\u2014_ fEECRIPTION \u2014\u2014\u2014\u2014_ cud UNIT PRICE TOTAL\nWidost 4 1 $ 6.00 \u00a7 $.00\nGadget 2 1 $ 700 $ 7.00\nfem 3 2 $ 600 $ 12.00\n3 :\n5 :\n$ :\nRamarke / Poyrontinstucons surrore 4 24.00\nOScOUNT \u00a3 2.00\nTae ATE 6.00%\nTOtm tax a 492\nSHOP IAO.NE 500\n( Gatance Qs 1 9 GER 20.02",
+  "processed_image_url": "/static/uploads/processed/20260422071335252947_invoice.jpg",
+  "original_image_url": "/static/uploads/original/20260422071335252947_invoice.jpg",
+  "extracted_info": {
+    "invoice_number": "Not found",
+    "date": "Not found",
+    "amount": "Not found"
+  },
+  "created_at": "2026-04-22 07:13:40 UTC"
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | NovaDocs AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="bg-orb orb-2"></div>
+    <main class="layout">
+      <header class="topbar glass">
+        <h1>Classification Dashboard</h1>
+        <a class="ghost-btn" href="{{ url_for('main.index') }}">Back to Upload</a>
+      </header>
+
+      <section class="history glass">
+        <h2>All Classification History</h2>
+        {% if history %}
+        <div class="history-list">
+          {% for item in history %}
+          <article class="history-item">
+            <div>
+              <strong>{{ item.filename }}</strong>
+              <p>{{ item.created_at }}</p>
+            </div>
+            <div class="tag-wrap">
+              <span class="tag">{{ item.prediction }}</span>
+              <span class="confidence">{{ item.confidence }}%</span>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p class="muted">No data available yet.</p>
+        {% endif %}
+      </section>
+    </main>
+  </body>
+</html>

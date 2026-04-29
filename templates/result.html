@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis Results | NovaDocs AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-3"></div>
+    <main class="layout">
+      <header class="topbar glass">
+        <h1>Analysis Results</h1>
+        <div class="action-stack">
+          <a class="ghost-btn" href="{{ url_for('main.index') }}">New Upload</a>
+          <a class="ghost-btn" href="{{ url_for('main.dashboard') }}">Dashboard</a>
+        </div>
+      </header>
+
+      <section class="results-grid">
+        {% for item in results %}
+        <article class="result-card glass">
+          <h2>{{ item.filename }}</h2>
+
+          {% if item.status == "success" %}
+          <div class="prediction-main">
+            <span class="badge large">{{ item.prediction }}</span>
+            <span class="confidence big">{{ item.confidence }}%</span>
+          </div>
+
+          <div class="confidence-bar-wrap">
+            <div class="confidence-bar" style="width: {{ item.confidence }}%"></div>
+          </div>
+
+          <div class="image-grid">
+            <div>
+              <h3>Original</h3>
+              <img src="{{ item.original_image_url }}" alt="Original document image" />
+            </div>
+            <div>
+              <h3>Processed for OCR</h3>
+              <img src="{{ item.processed_image_url }}" alt="Processed document image" />
+            </div>
+          </div>
+
+          <div class="key-info">
+            <h3>Extracted Key Information</h3>
+            <ul>
+              {% for key, value in item.extracted_info.items() %}
+              <li>
+                <strong>{{ key.replace('_', ' ').title() }}:</strong>
+                {% if value is string %}
+                  {{ value }}
+                {% else %}
+                  {{ value|join(', ') }}
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="text-box">
+            <h3>Extracted OCR Text</h3>
+            <pre>{{ item.raw_text }}</pre>
+          </div>
+
+          <a class="primary-btn inline-btn" href="{{ item.json_download_url }}" download>Download JSON</a>
+          {% else %}
+          <div class="alert">{{ item.error }}</div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </section>
+    </main>
+  </body>
+</html>

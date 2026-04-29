@@ -1,0 +1,16 @@
+{
+  "filename": "Screenshot 2026-04-17 112214.png",
+  "saved_filename": "20260417061210767023_Screenshot_2026-04-17_112214.png",
+  "status": "success",
+  "prediction": "invoice",
+  "confidence": 52.58,
+  "raw_text": "Invoice\nInvaice Number: INV-12345\nDate: 12/03/2024\nTotal Amount. @5,000\nGST: @S00\nThank yau for your business.",
+  "processed_image_url": "/static/uploads/processed/20260417061210767023_Screenshot_2026-04-17_112214.png",
+  "original_image_url": "/static/uploads/original/20260417061210767023_Screenshot_2026-04-17_112214.png",
+  "extracted_info": {
+    "invoice_number": "Not found",
+    "date": "12/03/2024",
+    "amount": "Not found"
+  },
+  "created_at": "2026-04-17 06:12:11 UTC"
+}

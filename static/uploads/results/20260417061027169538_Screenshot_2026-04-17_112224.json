@@ -1,0 +1,21 @@
+{
+  "filename": "Screenshot 2026-04-17 112224.png",
+  "saved_filename": "20260417061027169538_Screenshot_2026-04-17_112224.png",
+  "status": "success",
+  "prediction": "resume",
+  "confidence": 42.84,
+  "raw_text": "Resume\nName: John Doe\nEducation: 8. Tech Computer Science\nSkills, Python, Machine Learning, SQL.\nExperience: 2 years in Software Development",
+  "processed_image_url": "/static/uploads/processed/20260417061027169538_Screenshot_2026-04-17_112224.png",
+  "original_image_url": "/static/uploads/original/20260417061027169538_Screenshot_2026-04-17_112224.png",
+  "extracted_info": {
+    "skills": [
+      "python",
+      "sql",
+      "machine learning"
+    ],
+    "education_keywords": [
+      "Not found"
+    ]
+  },
+  "created_at": "2026-04-17 06:10:29 UTC"
+}
